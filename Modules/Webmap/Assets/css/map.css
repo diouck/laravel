@@ -1,0 +1,101 @@
+/*------------ single--------------------*/
+.meta{
+    margin-bottom: 20px;
+}
+.value{
+    font-size: 30px;
+}
+.singlemap,
+#pano {
+    position: relative;
+    height:400px;
+}
+
+.content .row{
+    margin:10px 0;
+}
+.content .table > thead > tr > th{
+    vertical-align: middle;
+}
+pre.ui-output {
+    display:none;
+    }
+pre.ui-output:empty { padding:0; }
+/*------------ carte edit--------------------------*/
+#editmap{
+    height:500px;
+    margin-bottom: 20px;
+}
+#editmap .leaflet-control-zoom{
+    position: relative;
+    right: 0;
+    top: 0;
+}
+
+/*------------ carte fullscreen--------------------*/
+#map {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+#loading {
+    position: absolute;
+    z-index:100;
+    top:40%;
+    left:43%;
+    font-size: 50px;
+}
+
+.container-full .alert{
+    display: none;
+    position: fixed;
+    z-index: 100;
+    width: 20%;
+    right: 20%;
+}
+
+.gmnoprint{
+    z-index: 100 !important;
+}
+.label{
+    color:#333;
+}
+
+.control-sidebar{
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.control-sidebar-bg, .control-sidebar{
+    width: 350px;
+    right :-350px;
+}
+/*------------ popup --------------------*/
+.leaflet-popup-content{
+    width: 400px !important;
+}
+.leaflet-popup-content .row{
+    margin: 15px 0;
+}
+
+/*------------ recherche --------------------*/
+.search .container{
+        width:1100px;
+    }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .search .container{
+        width:700px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .search .container{
+        width:650px;
+    }
+}
