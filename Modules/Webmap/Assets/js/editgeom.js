@@ -37,7 +37,7 @@ var ajax = $.ajax({
              url: url+'/updategeom', 
              data: 'shape='+shape,
              dataType: "json", 
-             encode: true
+             encode: true 
         });
 ajax.done(function(data) {
   var typegeoms = ["Point","Polygon","LineString"];
@@ -235,4 +235,5 @@ var commerce = L.mapbox.featureLayer().loadURL('/modules/webmap/geojson/commerce
             });
     });
 markerscom.addTo(map);
+
 map.addControl(new L.Control.Layers( {'OSM':osm, 'Google':ggl}, {}));
