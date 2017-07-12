@@ -129,4 +129,110 @@ map.on('draw:deleted', function(e) {
   });
 });
 
+//Cluster des commerces
+var markerscom = new L.MarkerClusterGroup({
+    animateAddingMarkers:true,
+    disableClusteringAtZoom:18,
+    iconCreateFunction: function(cluster) {
+        return new L.DivIcon({           
+            html: '<h2><span class="label bg-navy">' + cluster.getChildCount() + '</span></h2>'
+        });
+    }
+});
+
+
+var haveMarkers = {};
+
+//couche commerce
+var commerce = L.mapbox.featureLayer().loadURL('/modules/webmap/geojson/commerce.geojson')
+            .on('ready', function() {
+                commerce.eachLayer(function(layer) {
+                    markerscom.addLayer(layer);
+                var content = '<p> Enseigne: ' + layer.feature.properties.enseigne_ou_derniere_enseigne + '<br \/>  \
+                    Adresse : '+ layer.feature.properties.adresse + '<br \/>  \
+                    Secteur d\'activité : '+ layer.feature.properties.commentaires_activite + '<br \/>  \
+                    Catégorie d\'activité : '+ layer.feature.properties.status + '<br \/>  \
+                    Surface de vente couverte : '+ layer.feature.properties.surface_de_vente_couverte + '<br \/>  \
+                    Surface de vente extérieure : '+ layer.feature.properties.surface_de_vente_exterieure + '<\/p>';
+                layer.bindPopup(content);
+                if (layer.feature.properties.status === 'LOCAL VACANT') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#000',
+                        'marker-symbol': 'commercial'  
+                    }));
+                }
+                else if (layer.feature.properties.status === 'ALIMENTAIRE') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#C01717',
+                        'marker-symbol': 'grocery'  
+                    }));
+                }
+                else if (layer.feature.properties.status === 'EQ PERSONNE') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#F2E500',
+                        'marker-symbol': 'clothing-store'  
+                    }));
+                }
+                else if (layer.feature.properties.status === 'SOLDERIE/BAZAR') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#f49542',
+                        'marker-symbol': 'shop'  
+                    }));
+                }
+                else if (layer.feature.properties.status === 'EQ MAISON') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#28A951',
+                        'marker-symbol': 'village'
+                    }));
+                }
+                else if (layer.feature.properties.status === 'CULTURE LOISIRS') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#E26B0A',
+                        'marker-symbol': 'art-gallery'  
+                    }));
+                }
+                else if (layer.feature.properties.status === 'SERVICES A LA PERSONNE') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#D89593',
+                        'marker-symbol': 'hospital'
+                    }));
+                }
+                else if (layer.feature.properties.status === 'BEAUTE SANTE') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#27ACE5',
+                        'marker-symbol': 'hairdresser'  
+                    }));
+                }
+                else if (layer.feature.properties.status === 'SERVICES IMMATERIELS') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#212C56',
+                        'marker-symbol': 'place-of-worship'  
+                    }));
+                }
+                else if (layer.feature.properties.status === 'RESTAURATION') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#E52175',
+                        'marker-symbol': 'restaurant'  
+                    }));
+                }
+                else if (layer.feature.properties.status === 'AUTO') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#974706',
+                        'marker-symbol': 'car'
+                    }));
+                }
+                else if (layer.feature.properties.status === 'AUTRES LC') {
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#A5A5A5',
+                        'marker-symbol': 'land-use'  
+                    }));
+                }
+                else{
+                    layer.setIcon(L.mapbox.marker.icon({
+                        'marker-color': '#ffffff'  
+                    }));
+                }
+            });
+    });
+markerscom.addTo(map);
 map.addControl(new L.Control.Layers( {'OSM':osm, 'Google':ggl}, {}));
