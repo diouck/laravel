@@ -35,7 +35,7 @@ Route::group(['prefix' => 'webmap','middleware' => ['web','auth','application'],
 		
 		Route::group(['middleware' => ['contributor']], function()
 		{
-			Route::get('{id}/edit',array('as' => 'webmap.edit','uses' => 'PostController@edit'));
+			Route::get('{id}/edit',array('as' => 'commerce.edit','uses' => 'PostController@edit'));
 			Route::put('{id}/edit',array('as' => 'commerce.update','uses' => 'RevisionController@storeRevision'));
 			Route::post('{id}/editgeom',array('as' => 'commerce.editgeom','uses' => 'PostController@editgeomAjax'));
 			Route::post('{id}/updategeom',array('as' => 'commerce.updategeom','uses' => 'RevisionController@geomAjax'));

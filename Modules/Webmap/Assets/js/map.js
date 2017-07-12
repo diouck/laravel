@@ -40,7 +40,7 @@ var markerscom = new L.MarkerClusterGroup({
 var haveMarkers = {};
 
 //couche commerce
-var commerce = L.mapbox.featureLayer().loadURL('/modules/commercemetro/geojson/commerce.geojson')
+var commerce = L.mapbox.featureLayer().loadURL('/modules/webmap/geojson/commerce.geojson')
             .on('ready', function() {
                 commerce.eachLayer(function(layer) {
                     markerscom.addLayer(layer);

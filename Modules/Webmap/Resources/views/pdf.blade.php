@@ -1,4 +1,4 @@
-@extends('template.front.pdfmain')
+march@extends('template.front.pdfmain')
 
 @section('title')
 <title>{{ $post->slug }}</title>
@@ -586,7 +586,7 @@
 			
 			
 			var json = <?php echo $geojson; ?>;
-			var datamarche = <?php echo file_get_contents('http://www.avizon.fr/modules/webmap/geojson/marche.geojson'); ?>;
+			var datamarche = <?php echo file_get_contents('/modules/webmap/geojson/commerce.geojson'); ?>;
 			var featureLayer = L.mapbox.featureLayer(json);
   			var map = L.mapbox.map('singlemap').fitBounds(featureLayer.getBounds());
   			featureLayer.addTo(map);
@@ -600,7 +600,7 @@
 	                }));
 	            });
 	    	});
-	    	marche.addTo(map);
+	    	 marche.addTo(map);
 
 
   			//graph

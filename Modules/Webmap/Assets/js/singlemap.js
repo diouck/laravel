@@ -13,7 +13,7 @@ var url = location.href;
 
 
 //couche Grandes surfaces
-var gss = L.mapbox.featureLayer().loadURL('/modules/commercemetro/geojson/gsa-gss.geojson')
+var gss = L.mapbox.featureLayer().loadURL('/modules/webmap/geojson/gsa-gss.geojson')
             .on('ready', function() {
                 gss.eachLayer(function(layer) {
                 var content = '<h2>Grande surface<\/h2>' +
@@ -97,7 +97,7 @@ var gss = L.mapbox.featureLayer().loadURL('/modules/commercemetro/geojson/gsa-gs
     });
 
 //couche marchés
-var marche = L.mapbox.featureLayer().loadURL('/modules/commercemetro/geojson/marche.geojson')
+var marche = L.mapbox.featureLayer().loadURL('/modules/webmap/geojson/marche.geojson')
             .on('ready', function() {
                 marche.eachLayer(function(layer) {
                 var content = '<h2>Marché<\/h2>' +
