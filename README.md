@@ -1,4 +1,4 @@
-Framework d'LARAVEL
+Framework LARAVEL
 
 ![License](https://poser.pugx.org/laravel/framework/license.svg)
 
