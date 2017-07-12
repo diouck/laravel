@@ -1,4 +1,4 @@
-Framework d'AVIZON
+Framework d'LARAVEL
 
 ![License](https://poser.pugx.org/laravel/framework/license.svg)
 
