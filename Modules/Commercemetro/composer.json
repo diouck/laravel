@@ -1,10 +1,10 @@
 {
-	"name": "ldelhomme/commercemetro",
+	"name": "Diouck/commercemetro",
 	"description": "",
 	"authors": [
 		{
-			"name": "Ludovic Delhomme",
-			"email": "ludelh@gmail.com"
+			"name": "Abdou Diouck",
+			"email": "diouck@gmail.com"
 		}
 	],
 	"autoload": {

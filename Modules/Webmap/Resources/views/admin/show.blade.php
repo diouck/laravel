@@ -39,6 +39,7 @@
 						<li><a class="vente" href="#vente" role="tab" data-toggle="tab">Formes de ventes</a></li>
 						@endif
 						<li><a class="appreciation" href="#appreciation" role="tab" data-toggle="tab">Appréciation, dynamique et enjeux</a></li>
+						<li><a class="catgauran" href="#catgauran" role="tab" data-toggle="tab">Autres catégories AURAN</a></li>
 					</ul>
 				</div>
 			</div>
@@ -601,6 +602,27 @@
 					@endif
 				</div>
 			</div>
+
+
+			<div class="tab-pane" id="catgauran">
+				<div class="row"> 
+					 
+					<div class="col-md-6 col-xs-12">
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<h3 class="box-title">Commentaires</h3>
+							</div>
+							<div class="box-body"> 
+								<textarea name="content[appreciation_dyn_com]" class="form-control" rows="3">{{ Input::old('com_auran', $content->com_auran)}}</textarea>
+							</div>
+						</div>
+					</div>
+					 
+				</div>
+			</div>
+
+
+
 		</div>
 	</section>
 </div>

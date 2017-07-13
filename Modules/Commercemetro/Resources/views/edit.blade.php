@@ -1653,7 +1653,7 @@
             </div>
         </div>  
         {!! Form::close() !!}      
-	</div>
+    </div>
 @endsection
 @section('scripts')
     {!! HTML::script('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js') !!}

@@ -39,6 +39,9 @@
 						<li><a class="vente" href="#vente" role="tab" data-toggle="tab">Formes de ventes</a></li>
 						@endif
 						<li><a class="appreciation" href="#appreciation" role="tab" data-toggle="tab">Appréciation, dynamique et enjeux</a></li>
+
+						<li><a class="catgauran" href="#catgauran" role="tab" data-toggle="tab">Autres catégories AURAN</a></li>
+
 					</ul>
 				</div>
 			</div>
@@ -601,6 +604,28 @@
 					@endif
 				</div>
 			</div>
+
+
+
+			<div class="tab-pane" id="catgauran">
+				<div class="row"> 
+					 
+					<div class="col-md-6 col-xs-12">
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<h3 class="box-title">Commentaires</h3>
+							</div>
+							<div class="box-body"> 
+								<textarea name="content[appreciation_dyn_com]" class="form-control" rows="3">{{ Input::old('com_auran', $content->com_auran)}}</textarea>
+							</div>
+						</div>
+					</div>
+					 
+				</div>
+			</div>
+
+
+
 		</div>
 	</section>
 </div>
@@ -611,7 +636,7 @@
         {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js') !!}
         {!! HTML::script('/modules/webmap/js/google.js') !!}
         {!! HTML::script('/modules/webmap/js/singlemap.js') !!}
-        {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')!!}
+       {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')!!}
         {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js')!!}
         <script type="text/javascript">
 		  	var typo_commerce = [{'label':'Vacants','value':{{CommerceHelper::sum_cat('#^cat_0_#', (array)$content)}}},{'label':'Alimentaire','value':{{CommerceHelper::sum_cat('#^cat_1_#', (array)$content)}}},{'label':'Equipement de la personne','value':{{CommerceHelper::sum_cat('#^cat_2_#', (array)$content)}}},{'label':'Equipement de la maison','value':{{CommerceHelper::sum_cat('#^cat_3_#', (array)$content)}}},{'label':'Culture / Loisirs','value':{{CommerceHelper::sum_cat('#^cat_4_#', (array)$content)}}},{'label':'Santé','value':{{CommerceHelper::sum_cat('#^cat_5_#', (array)$content)}}},{'label':'Services commerciaux','value':{{CommerceHelper::sum_cat('#^cat_6_#', (array)$content)}}},{'label':'Services non commerciaux','value':{{CommerceHelper::sum_cat('#^cat_7_#', (array)$content)}}},{'label':'Restauration','value':{{CommerceHelper::sum_cat('#^cat_8_#', (array)$content)}}},{'label':'Automobile','value':{{CommerceHelper::sum_cat('#^cat_9_#', (array)$content)}}},{'label':'Autres','value':{{CommerceHelper::sum_cat('#^cat_10_#', (array)$content)}}}];

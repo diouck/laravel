@@ -4,7 +4,7 @@
 <title>{{ $post->slug }}</title>
 @endsection
 @section('header')
-		{!! HTML::style('/assets/css/morris.css', array('media' => 'all')) !!}
+		{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css') !!}
 		{!! HTML::style('/modules/commercemetro/css/map.css', array('media' => 'all')) !!}
 		{!! HTML::style('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', array('media' => 'all')) !!}
 		{!! HTML::style('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css', array('media' => 'all')) !!}
@@ -579,8 +579,8 @@
 @section('footer')
         {!! HTML::script('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js') !!}
         {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js') !!}
-        {!! HTML::script('/assets/js/raphael.js')!!}
-        {!! HTML::script('/assets/js/morris.js')!!} 
+        {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')!!}
+        {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js')!!} 
         <script type="text/javascript">
         	//map
         	L.mapbox.accessToken = 'pk.eyJ1IjoibHVkby1hdXJnIiwiYSI6IjE0QzlVekkifQ.FK86sgWfTNbDC-Z-O-hTww';

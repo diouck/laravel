@@ -1,10 +1,10 @@
 {
-	"name": "ldelhomme/webmap",
+	"name": "Diouck/webmap",
 	"description": "",
 	"authors": [
 		{
-			"name": "Ludovic Delhomme",
-			"email": "ludelh@gmail.com"
+			"name": "Diouck Abdou",
+			"email": "diouck@gmail.com"
 		}
 	],
 	"autoload": {

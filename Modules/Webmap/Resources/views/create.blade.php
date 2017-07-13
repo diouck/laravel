@@ -6,6 +6,7 @@
 
 @section('header')
     {!! HTML::style('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', array('media' => 'all')) !!}
+    {!! HTML::style('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css', array('media' => 'all')) !!}
     {!! HTML::style('/modules/webmap/css/map.css', array('media' => 'all')) !!}
     {!! HTML::style('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css', array('media' => 'all')) !!}
 
@@ -29,6 +30,10 @@
                         <li ><a class="activite" href="#activite" role="tab" data-toggle="tab">Secteurs d'activités</a></li>
                         <li ><a class="formevente" href="#formevente" role="tab" data-toggle="tab">Formes de ventes</a></li>
                         <li ><a class="appreciation" href="#appreciation" role="tab" data-toggle="tab">Appréciation, dynamique et enjeux</a></li>
+
+                        <li><a class="catgauran" href="#catgauran" role="tab" data-toggle="tab">Autres catégories AURAN</a></li>
+
+
                     </ul>
                 </div>
             </div>
@@ -1616,6 +1621,31 @@
                     </div>
                 </div>
             </div>
+
+
+
+            <div class="tab-pane" id="catgauran">        
+                <div class="row">
+                  
+                    <div class="col-md-6">
+                       
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h2 class="box-title">Commentaires</h2>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <textarea name="content[com_auran]" class="form-control" rows="3"></textarea>
+                                </div>  
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+            </div>
+
+
+
+            
             <div class="row">
                 <div class="col-md-6">
                     <button type="submit" class="btn btn-default">Envoyer</button>
@@ -1628,6 +1658,7 @@
 @endsection
 @section('scripts')
     {!! HTML::script('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js') !!}
+    {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js') !!}
     {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js') !!}
     {!! HTML::script('http://maps.google.com/maps/api/js?v=3') !!}
     {!! HTML::script('/modules/webmap/js/google.js') !!}

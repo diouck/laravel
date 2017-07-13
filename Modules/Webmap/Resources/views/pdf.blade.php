@@ -1,12 +1,13 @@
-march@extends('template.front.pdfmain')
+@extends('template.front.pdfmain')
 
 @section('title')
 <title>{{ $post->slug }}</title>
 @endsection
 @section('header')
-		{!! HTML::style('/assets/css/morris.css', array('media' => 'all')) !!}
+		{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css') !!}
 		{!! HTML::style('/modules/webmap/css/map.css', array('media' => 'all')) !!}
 		{!! HTML::style('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', array('media' => 'all')) !!}
+		{!! HTML::style('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css', array('media' => 'all')) !!}
 @endsection
 
 
@@ -14,6 +15,7 @@ march@extends('template.front.pdfmain')
 	<?php $content = json_decode($post->content); ?>
 <div class="container">
 	<img class="img-responsive" src="http://www.avizon.fr/images/logo_avizon_moyen.png">
+	<br>
 	<section class="content-header">
 		@if (isset($post->title))
 			<h1>{{ $post->title }}<small>{{ $post->slug }}</small></h1>
@@ -71,18 +73,18 @@ march@extends('template.front.pdfmain')
 						</div>
 					</div>
 				</div>				
-			</div>
+			</div> 
 			<div class="row">
 				<div class="col-md-12">
 					<div class="box box-primary">
 						<div class="box-header with-border">
-							<h3 class="box-title">Vue aérienne</h3>
+							<h3 class="box-title">Localisation du pôle et des commerces</h3>
 						</div>
-						<div class="box-body singlemap" id="singlemap" style="width:880px; height:300px"></div>
+						<div class="box-body singlemap" id="singlemap" style="width:880px; height:350px"></div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> 
 		<div class="row">
 			<div class="col-md-6 col-xs-12">
 				<div class="box box-primary">
@@ -90,7 +92,7 @@ march@extends('template.front.pdfmain')
 						<h3 class="box-title">Typologie des commerces</h3>
 					</div>
 					<div class="box-body">
-						<div id="typo_commerce" class="chart" style="width: 400px; height: 300px;"></div>
+						<div id="typo_commerce" class="chart" style="width: 400px; height: 400px;"></div>
 					</div>
 				</div>
 			</div>
@@ -117,7 +119,11 @@ march@extends('template.front.pdfmain')
 				</div>
 			</div>				
 		</div>
+		<br><br><br><br><br><br>
 		<div class="row">
+		<div class="box-header with-border">
+						<h3 class="box-title">Typologie des commerces (suiite)</h3>
+					</div><hr>
 		@if (CommerceHelper::sum_cat('#^cat_1_#', (array)$content) > 0)
 			<div class="col-md-6 col-xs-12">
 				<div class="box box-default ">
@@ -572,8 +578,9 @@ march@extends('template.front.pdfmain')
 @stop
 @section('footer')
         {!! HTML::script('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js') !!}
-        {!! HTML::script('/assets/js/raphael.js')!!}
-        {!! HTML::script('/assets/js/morris.js')!!} 
+        {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js') !!}
+        {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')!!}
+        {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js')!!} 
         <script type="text/javascript">
         	//map
         	L.mapbox.accessToken = 'pk.eyJ1IjoibHVkby1hdXJnIiwiYSI6IjE0QzlVekkifQ.FK86sgWfTNbDC-Z-O-hTww';
@@ -586,11 +593,27 @@ march@extends('template.front.pdfmain')
 			
 			
 			var json = <?php echo $geojson; ?>;
-			var datamarche = <?php echo file_get_contents('/modules/webmap/geojson/commerce.geojson'); ?>;
+			var datamarche = <?php echo file_get_contents('http://192.168.0.136/modules/webmap/geojson/commerce.geojson'); ?>;
 			var featureLayer = L.mapbox.featureLayer(json);
   			var map = L.mapbox.map('singlemap').fitBounds(featureLayer.getBounds());
   			featureLayer.addTo(map);
   			osm.addTo(map);
+
+  			//Desactiver les cluster
+/*
+  			//Cluster des commerces
+var markerscom = new L.MarkerClusterGroup({
+    animateAddingMarkers:true,
+    disableClusteringAtZoom:18,
+    iconCreateFunction: function(cluster) {
+        return new L.DivIcon({           
+            html: '<h2><span class="label bg-navy">' + cluster.getChildCount() + '</span></h2>'
+        });
+    }
+});
+
+*/ 
+
   			var marche = L.mapbox.featureLayer(datamarche);
   			marche.on('ready', function() {
 	            marche.eachLayer(function(layer) {
@@ -600,7 +623,7 @@ march@extends('template.front.pdfmain')
 	                }));
 	            });
 	    	});
-	    	 marche.addTo(map);
+	    	marche.addTo(map);
 
 
   			//graph
