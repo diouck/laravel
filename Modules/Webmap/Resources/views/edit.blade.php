@@ -6,6 +6,7 @@
 
 @section('header')
     {!! HTML::style('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', array('media' => 'all')) !!}
+    {!! HTML::style('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css', array('media' => 'all')) !!}
     {!! HTML::style('/modules/webmap/css/map.css', array('media' => 'all')) !!}
     {!! HTML::style('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css', array('media' => 'all')) !!}
 
@@ -1629,6 +1630,7 @@
 @endsection
 @section('scripts')
     {!! HTML::script('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js') !!}
+    {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js') !!}
     {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js') !!}
     {!! HTML::script('http://maps.google.com/maps/api/js?v=3') !!}
     {!! HTML::script('/modules/webmap/js/google.js') !!}

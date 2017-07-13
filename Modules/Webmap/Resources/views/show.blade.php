@@ -8,7 +8,7 @@
 		{!! HTML::style('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', array('media' => 'all')) !!}
 		{!! HTML::style('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css', array('media' => 'all')) !!}
 		{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css') !!}
-		{!! HTML::style('/modules/commercemetro/css/map.css', array('media' => 'all')) !!}
+		{!! HTML::style('/modules/webmap/css/map.css', array('media' => 'all')) !!}
 @stop
 
 @section('content')
@@ -609,8 +609,8 @@
         {!! HTML::script('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js') !!}
         {!! HTML::script('http://maps.google.com/maps/api/js?v=3') !!}
         {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js') !!}
-        {!! HTML::script('/modules/commercemetro/js/google.js') !!}
-        {!! HTML::script('/modules/commercemetro/js/singlemap.js') !!}
+        {!! HTML::script('/modules/webmap/js/google.js') !!}
+        {!! HTML::script('/modules/webmap/js/singlemap.js') !!}
         {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')!!}
         {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js')!!}
         <script type="text/javascript">

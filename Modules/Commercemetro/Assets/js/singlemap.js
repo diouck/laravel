@@ -238,8 +238,8 @@ $.post( url, function( data ) {
  	var panorama = new  google.maps.StreetViewPanorama(document.getElementById('pano'),panoramaOptions);
 	featureLayer.addTo(map);
 	osm.addTo(map);
-	gss.addTo(map);
-	marche.addTo(map);
+	//gss.addTo(map);
+	//marche.addTo(map);
     markerscom.addTo(map); 
     
 	map.addControl(new L.Control.Layers( {'OSM':osm, 'Google':ggl}, {}));

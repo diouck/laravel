@@ -7,7 +7,7 @@
 @section('header')
 		{!! HTML::style('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', array('media' => 'all')) !!}
 		{!! HTML::style('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css', array('media' => 'all')) !!}
-		{!! HTML::style('/assets/css/morris.css') !!}
+		{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css') !!}
 		{!! HTML::style('/modules/commercemetro/css/map.css', array('media' => 'all')) !!}
 @stop
 
@@ -39,7 +39,6 @@
 						<li><a class="vente" href="#vente" role="tab" data-toggle="tab">Formes de ventes</a></li>
 						@endif
 						<li><a class="appreciation" href="#appreciation" role="tab" data-toggle="tab">Appréciation, dynamique et enjeux</a></li>
-						<li><a class="catgauran" href="#catgauran" role="tab" data-toggle="tab">Autres catégories AURAN</a></li>
 					</ul>
 				</div>
 			</div>
@@ -602,27 +601,6 @@
 					@endif
 				</div>
 			</div>
-
-
-			<div class="tab-pane" id="catgauran">
-				<div class="row"> 
-					 
-					<div class="col-md-6 col-xs-12">
-						<div class="box box-primary">
-							<div class="box-header with-border">
-								<h3 class="box-title">Commentaires</h3>
-							</div>
-							<div class="box-body"> 
-								<textarea name="content[appreciation_dyn_com]" class="form-control" rows="3">{{ Input::old('com_auran', $content->com_auran)}}</textarea>
-							</div>
-						</div>
-					</div>
-					 
-				</div>
-			</div>
-
-
-
 		</div>
 	</section>
 </div>
@@ -633,8 +611,8 @@
         {!! HTML::script('https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js') !!}
         {!! HTML::script('/modules/commercemetro/js/google.js') !!}
         {!! HTML::script('/modules/commercemetro/js/singlemap.js') !!}
-        {!! HTML::script('/assets/js/raphael.js')!!}
-        {!! HTML::script('/assets/js/morris.js')!!} 
+        {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')!!}
+        {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js')!!}
         <script type="text/javascript">
 		  	var typo_commerce = [{'label':'Vacants','value':{{CommerceHelper::sum_cat('#^cat_0_#', (array)$content)}}},{'label':'Alimentaire','value':{{CommerceHelper::sum_cat('#^cat_1_#', (array)$content)}}},{'label':'Equipement de la personne','value':{{CommerceHelper::sum_cat('#^cat_2_#', (array)$content)}}},{'label':'Equipement de la maison','value':{{CommerceHelper::sum_cat('#^cat_3_#', (array)$content)}}},{'label':'Culture / Loisirs','value':{{CommerceHelper::sum_cat('#^cat_4_#', (array)$content)}}},{'label':'Santé','value':{{CommerceHelper::sum_cat('#^cat_5_#', (array)$content)}}},{'label':'Services commerciaux','value':{{CommerceHelper::sum_cat('#^cat_6_#', (array)$content)}}},{'label':'Services non commerciaux','value':{{CommerceHelper::sum_cat('#^cat_7_#', (array)$content)}}},{'label':'Restauration','value':{{CommerceHelper::sum_cat('#^cat_8_#', (array)$content)}}},{'label':'Automobile','value':{{CommerceHelper::sum_cat('#^cat_9_#', (array)$content)}}},{'label':'Autres','value':{{CommerceHelper::sum_cat('#^cat_10_#', (array)$content)}}}];
 		    var typo_surface = [{'label':'Alimentaire','value':@if(!empty($content->sf_1)){{$content->sf_1}}@else 0 @endif},{'label':'Equipement de la personne','value':@if(!empty($content->sf_2)){{$content->sf_2}}@else 0 @endif},{'label':'Equipement de la maison','value':@if(!empty($content->sf_3)){{$content->sf_3}}@else 0 @endif},{'label':'Culture / Loisirs','value':@if(!empty($content->sf_4)){{$content->sf_4}}@else 0 @endif},{'label':'Services commerciaux','value':@if(!empty($content->sf_6)){{$content->sf_6}}@else 0 @endif},{'label':'Hôtellerie / Restauration','value':@if(!empty($content->sf_8)){{$content->sf_8}}@else 0 @endif},{'label':'Cycle','value':@if(!empty($content->sf_9)){{$content->sf_9}}@else 0 @endif}];
